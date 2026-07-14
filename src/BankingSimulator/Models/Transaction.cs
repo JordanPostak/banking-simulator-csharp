@@ -2,11 +2,11 @@ namespace BankingSimulator.Models;
 
 public class Transaction
 {
-    public Transaction(string type, decimal amount, DateTime timestamp, decimal balanceAfterTransaction)
+    public Transaction(string type, decimal amount, DateTime date, decimal balanceAfterTransaction)
     {
         Type = type;
         Amount = amount;
-        Timestamp = timestamp;
+        Date = date;
         BalanceAfterTransaction = balanceAfterTransaction;
     }
 

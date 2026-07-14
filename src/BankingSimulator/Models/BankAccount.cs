@@ -26,4 +26,15 @@ public class BankAccount
     public string AccountNumber { get; }
     public decimal Balance { get; private set; }
     public IReadOnlyList<Transaction> Transactions => _transactions;
+
+    public void Deposit(decimal amount)
+    {
+        if (amount <= 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(amount), "Amount must be greater than zero.");
+        }
+
+        Balance += amount;
+        _transactions.Add(new Transaction("Deposit", amount, DateTime.UtcNow, Balance));
+    }
 }
