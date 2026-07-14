@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using BankingSimulator.Models;
+using BankingSimulator.UI;
+
+var account = new BankAccount("Jordan", "100001");
+var menu = new ConsoleMenu(account);
+
+menu.Run();
