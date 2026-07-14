@@ -37,4 +37,21 @@ public class BankAccount
         Balance += amount;
         _transactions.Add(new Transaction("Deposit", amount, DateTime.UtcNow, Balance));
     }
+
+    public bool Withdraw(decimal amount)
+    {
+        if (amount <= 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(amount), "Amount must be greater than zero.");
+        }
+
+        if (amount > Balance)
+        {
+            return false;
+        }
+
+        Balance -= amount;
+        _transactions.Add(new Transaction("Withdrawal", amount, DateTime.UtcNow, Balance));
+        return true;
+    }
 }
